@@ -10,6 +10,7 @@ module.exports = function (app) {
     app.post('/auth/authenticate', authController.authenticate);
 
     app.post('/auth/register', authController.register);
+    //app.post('/auth/register', authController.register);
 }
 
     

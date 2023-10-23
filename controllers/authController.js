@@ -15,6 +15,7 @@ authController.register = async (req, res) => {
             res.status(200).send({status:true,message:"User Registered Successfully",data:user,error:""});
         }
     } catch (error) {
+        console.log(error)
         res.status(500).send({status:false,message:"Internal Server Error",data:[],error:error});
     }
 };
@@ -47,6 +48,7 @@ authController.authenticate = async (req, res) => {
         user.token = token;
         res.status(200).send({status:true,message:"User Logged in Successfully",data:user,error:""});
     } catch (error) {
+        console.log(error)
         res.status(500).send({status:false,message:"Internal Server Error",data:[],error:error});
     }
 };

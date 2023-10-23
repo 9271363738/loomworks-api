@@ -25,6 +25,7 @@ exports.authenticate = async (email) => {
     
 
   } catch (error) {
+    console.log(error)
     throw error;
   }
 };
