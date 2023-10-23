@@ -30,4 +30,10 @@
 
     require('./routes/authRoutes')(app);
 module.exports = app;
-    
+   const itemRoutes = require('./routes/itemRoutes');
+app.use('/item', itemRoutes);
+const ordersRoutes = require('./routes/ordersRoutes');
+app.use('/orders', ordersRoutes);
+const dealersRoutes = require('./routes/dealersRoutes');
+app.use('/dealers', dealersRoutes);
+ 
