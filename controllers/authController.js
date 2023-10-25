@@ -25,6 +25,8 @@ authController.authenticate = async (req, res) => {
     try {
         const {email,password} = req.body;
         const user = await authService.authenticate(email);
+        console.log(password)
+        console.log(user)
         let passwordIsValid = bcrypt.compareSync(
             password,
             user.password
