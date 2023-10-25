@@ -39,7 +39,7 @@
           const item = await itemService.find(query,page,limit);
           const totalCount = await itemService.countDocument(query);
           res.status(200).send({
-      data,
+      item,
       page,
       totalPages: Math.ceil(totalCount / limit),
       totalItems: totalCount,

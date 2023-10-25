@@ -39,13 +39,14 @@
           const dealers = await dealersService.find(query,page,limit);
           const totalCount = await dealersService.countDocument(query);
           res.status(200).send({
-      data,
+      dealers,
       page,
       totalPages: Math.ceil(totalCount / limit),
       totalItems: totalCount,
     });
           
         } catch (error) {
+          console.log(error)
             res.status(500).send({status:false,message:"Internal Server Error",data:[],error:error});
         }
       };
@@ -78,6 +79,6 @@
             res.status(500).send({status:false,message:"Internal Server Error",data:[],error:error});
         }
       };
-  
+      
       module.exports = dealersController;
     

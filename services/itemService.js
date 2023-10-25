@@ -4,7 +4,7 @@
 
     const {item:Item} = db;
 
-    exports.createitem = async (data) => {
+    exports.create = async (data) => {
       try {
         const item = new Item(data);
     
@@ -40,6 +40,7 @@
     exports.updateitem = async (id,data) => {
       try {
         const item = await Item.findByIdAndUpdate(id,data);
+        console.log(item);
     
         return item;
       } catch (error) {

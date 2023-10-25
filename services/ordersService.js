@@ -4,8 +4,10 @@
 
     const {orders:Orders} = db;
 
-    exports.createorders = async (data) => {
+    exports.create = async (data) => {
       try {
+        let order = await Orders.find({});
+        data.orderNo = order.length + 1;
         const orders = new Orders(data);
     
         const savedorders = await orders.save();
@@ -19,7 +21,6 @@
     exports.find = async (condition,page,limit) => {
       try {
         const orders = await Orders.find(condition).skip((page - 1) * limit).limit(limit).sort({createdAt:-1}).exec();;
-    
         return orders;
       } catch (error) {
         throw error;
@@ -46,6 +47,8 @@
         throw error;
       }
     };
+
+
 
     exports.deleteorders = async (id) => {
       try {

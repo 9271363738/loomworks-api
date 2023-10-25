@@ -39,7 +39,7 @@
           const orders = await ordersService.find(query,page,limit);
           const totalCount = await ordersService.countDocument(query);
           res.status(200).send({
-      data,
+      orders,
       page,
       totalPages: Math.ceil(totalCount / limit),
       totalItems: totalCount,
@@ -78,6 +78,8 @@
             res.status(500).send({status:false,message:"Internal Server Error",data:[],error:error});
         }
       };
+
+      //increment
   
       module.exports = ordersController;
     

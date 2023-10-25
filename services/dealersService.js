@@ -4,7 +4,7 @@
 
     const {dealers:Dealers} = db;
 
-    exports.createdealers = async (data) => {
+    exports.create = async (data) => {
       try {
         const dealers = new Dealers(data);
     
@@ -18,8 +18,7 @@
 
     exports.find = async (condition,page,limit) => {
       try {
-        const dealers = await Dealers.find(condition).skip((page - 1) * limit).limit(limit).sort({createdAt:-1}).exec();;
-    
+        const dealers = await Dealers.find(condition).populate('user').skip((page - 1) * limit).limit(limit).sort({createdAt:-1}).exec();
         return dealers;
       } catch (error) {
         throw error;
