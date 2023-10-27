@@ -6,38 +6,7 @@
     const Orders = mongoose.model(
       "Orders",
       new mongoose.Schema({
-        dealerName:{
-          type:String,
-          reuired:true
-        },
-        dealerAddress:{
-          type:String,
-          required:true
-        },
-        contactPerson:{
-          type:String,
-          required:true
-        },
-        dealerEmail:{
-          type:String,
-          required:true
-        },
-        billingTo:{
-          type:String,
-          required:true
-        },
-        billingAddress:{
-          type:String,
-          required:true
-        },
-        billingContact:{
-          type:Number,
-          required:true
-        },
-        billingGst:{
-          type:String,
-          required:true
-        },
+        
         date:{
           type:Date,
           required:true
@@ -55,18 +24,6 @@
           required:true
         },
         poNo:{
-          type:String,
-          required:true
-        },
-        shippingTo:{
-          type:String,
-          required:true
-        },
-        shippingAddress:{
-          type:String,
-          required:true
-        },
-        shippingContact:{
           type:String,
           required:true
         },
