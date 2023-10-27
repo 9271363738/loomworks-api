@@ -1,19 +1,25 @@
 
     // services/dealersService.js
     const db = require('../models');
-
-    const {dealers:Dealers} = db;
+    const {
+      user:User,
+      dealers:Dealers
+  }=db;
 
     exports.create = async (data) => {
       try {
+        const user=new User(data);
+        const saveduser = await user.save();
+        data.user=saveduser._id
         const dealers = new Dealers(data);
-    
         const saveddealers = await dealers.save();
-    
         return saveddealers;
+        
+
       } catch (error) {
         throw error;
       }
+
     };
 
     exports.find = async (condition,page,limit) => {
@@ -24,6 +30,8 @@
         throw error;
       }
     };
+
+
 
     exports.countDocument = async (condition) => {
   try {
@@ -38,7 +46,9 @@
 
     exports.updatedealers = async (id,data) => {
       try {
+        console.log(data);
         const dealers = await Dealers.findByIdAndUpdate(id,data);
+        const user = await User.findByIdAndUpdate(dealers.user,data);
     
         return dealers;
       } catch (error) {

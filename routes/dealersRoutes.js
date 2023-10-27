@@ -7,7 +7,7 @@
       const dealersController = require('../controllers/dealersController');
   
       // GET route
-      router.get('/', dealersController.read);
+      router.post('/get', dealersController.read);
   
       // POST route
       router.post('/', dealersController.create);
@@ -17,6 +17,7 @@
   
       // DELETE route
       router.delete('/:id', dealersController.delete);
+
   
       module.exports = router;
     

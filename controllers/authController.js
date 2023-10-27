@@ -12,6 +12,7 @@ authController.register = async (req, res) => {
         userData.password = bcrypt.hashSync(req.body.password,8);
         const user = await authService.register(userData);
         if(user){
+            console.log(error)
             res.status(200).send({status:true,message:"User Registered Successfully",data:user,error:""});
         }
     } catch (error) {

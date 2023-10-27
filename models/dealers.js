@@ -38,6 +38,14 @@
           type:String,
           required:true
         },
+        shippingZipCode:{
+          type:String,
+          required:true
+        },
+        Mobile:{
+          type:String,
+          required:true
+        },
         user:{
           type:mongoose.Schema.Types.ObjectId,
           ref:"User"

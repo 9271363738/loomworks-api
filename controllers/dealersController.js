@@ -1,6 +1,10 @@
 
       // controllers/dealersController.js
-      const dealersService = require('../services/dealersService');
+      const { MongooseError } = require('mongoose');
+      const db=require("../models");
+const { mongoose } = require('../models');
+const dealersService = require('../services/dealersService');
+
 
       function dealersController(req, res) {
         // Controller logic here
@@ -10,23 +14,29 @@
       dealersController.create = async (req, res) => {
         try {
             const dealersData = req.body;
+            console.log(dealersData)
             const dealers = await dealersService.create(dealersData);
             if(dealers){
                 res.status(200).send({status:true,message:"dealers Created Successfully",data:dealers,error:""});
             }
         } catch (error) {
+          console.log(error);
             res.status(500).send({status:false,message:"Internal Server Error",data:[],error:error});
         }
+        
+      
       };
   
       // Read
       dealersController.read = async (req, res) => {
         try {
+          console.log(req.body)
           const condition = req.body || {};
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 25;
     const searchTerm = req.query.searchTerm;
     let query = {};
+    
 
     if (condition) {
       query = condition;
@@ -54,6 +64,7 @@
       // Update
       dealersController.update = async (req, res) => {
         try {
+          console.log(req.body)
           const id = req.params.id;
           const data = req.body;
           const dealers = await dealersService.updatedealers(id,data);
@@ -76,9 +87,12 @@
           }
           
         } catch (error) {
+          // console.log(error)
             res.status(500).send({status:false,message:"Internal Server Error",data:[],error:error});
         }
       };
+
+
       
       module.exports = dealersController;
     
