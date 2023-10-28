@@ -11,12 +11,23 @@
           type:String,
           reuired:true
         },
-        
-        sku:{
+        Dealer:{
+          type:mongoose.Schema.Types.ObjectId,
+          ref:"Dealers"
+        },
+        Catagory:{
+          type:String,
+          requied:true
+        },
+        Sku:{
           type:String,
           reuired:true
         },
         brand:{
+          type:String,
+          reuired:true
+        },
+        price:{
           type:String,
           reuired:true
         },
@@ -32,10 +43,11 @@
           type:String,
           reuired:true
         },
-        sizes:{
-          type:String,
-          requird:true
-        }
+        sizes:[{
+          name:{
+            type:String
+          }
+        }]
                 
       }, {
         timestamps: true

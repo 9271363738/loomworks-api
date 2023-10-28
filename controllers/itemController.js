@@ -10,11 +10,13 @@
       itemController.create = async (req, res) => {
         try {
             const itemData = req.body;
+            console.log(itemData)
             const item = await itemService.create(itemData);
             if(item){
                 res.status(200).send({status:true,message:"item Created Successfully",data:item,error:""});
             }
         } catch (error) {
+          console.log(error)
             res.status(500).send({status:false,message:"Internal Server Error",data:[],error:error});
         }
       };

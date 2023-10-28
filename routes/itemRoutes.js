@@ -7,7 +7,7 @@
       const itemController = require('../controllers/itemController');
   
       // GET route
-      router.get('/', itemController.read);
+      router.post('/get', itemController.read);
   
       // POST route
       router.post('/', itemController.create);

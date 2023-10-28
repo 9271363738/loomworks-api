@@ -18,7 +18,7 @@
 
     exports.find = async (condition,page,limit) => {
       try {
-        const item = await Item.find(condition).skip((page - 1) * limit).limit(limit).sort({createdAt:-1}).exec();;
+        const item = await Item.find(condition).populate("Dealer").skip((page - 1) * limit).limit(limit).sort({createdAt:-1}).exec();;
     
         return item;
       } catch (error) {
