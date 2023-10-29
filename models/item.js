@@ -28,7 +28,7 @@
           reuired:true
         },
         price:{
-          type:String,
+          type:Number,
           reuired:true
         },
         description:{

@@ -33,7 +33,7 @@
           ref: "Item",
         },
           price:{
-            type:String,
+            type:Number,
             required:true
           },
           size:[{
@@ -47,11 +47,11 @@
         ],
 
           gst:{
-            type:String,
+            type:Number,
             required:true
           },
           total:{
-            type:String,
+            type:Number,
             required:true
           }
         }
