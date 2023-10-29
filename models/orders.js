@@ -9,24 +9,26 @@
         
         date:{
           type:Date,
-          required:true
         },
         orderNo:{
           type:String,
-          required:true
         },
         customerNo:{
           type:String,
-          required:true
         },        
         poDate:{
           type:Date,
-          required:true
         },
         poNo:{
           type:String,
-          required:true
+
         },
+        Dealers:[{
+          dealer:{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Dealers",
+          }}
+        ],
         items:[{
           item:{
           type: mongoose.Schema.Types.ObjectId,
@@ -34,7 +36,6 @@
         },
           price:{
             type:Number,
-            required:true
           },
           size:[{
           name:{
@@ -48,30 +49,25 @@
 
           gst:{
             type:Number,
-            required:true
           },
           total:{
             type:Number,
-            required:true
           }
         }
       ]
         ,
         totalAmount:{
-          type:Number,
-          required: true
+          type:Number
         },
         shippingCharges:{
           type:Number,
-          required: true
         },
         discount:{
-          type:Number,
-          required: true
+          type:Number
+
         },
         finalAmount:{
-          type:Number,
-          required:true
+          type:Number
         }
       }, {
         timestamps: true
