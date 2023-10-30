@@ -23,12 +23,6 @@
           type:String,
 
         },
-        Dealers:[{
-          dealer:{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Dealers",
-          }}
-        ],
         items:[{
           item:{
           type: mongoose.Schema.Types.ObjectId,
@@ -68,6 +62,9 @@
         },
         finalAmount:{
           type:Number
+        },user:{
+          type:mongoose.Schema.Types.ObjectId,
+          ref:"User"
         }
       }, {
         timestamps: true

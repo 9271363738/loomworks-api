@@ -20,7 +20,7 @@
 
     exports.find = async (condition,page,limit) => {
       try {
-        const orders = await Orders.find(condition).skip((page - 1) * limit).limit(limit).sort({createdAt:-1}).exec();;
+        const orders = await Orders.find(condition).populate('items.item').skip((page - 1) * limit).limit(limit).sort({createdAt:-1}).exec();;
         return orders;
       } catch (error) {
         throw error;

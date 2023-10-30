@@ -11,10 +11,6 @@
           type:String,
           reuired:true
         },
-        Dealer:{
-          type:mongoose.Schema.Types.ObjectId,
-          ref:"Dealers"
-        },
         Catagory:{
           type:String,
           requied:true
@@ -46,6 +42,10 @@
         sizes:[{
           name:{
             type:String
+          },
+          quantity:{
+            type:Number,
+            default:1
           }
         }]
                 

@@ -15,6 +15,7 @@
                 res.status(200).send({status:true,message:"orders Created Successfully",data:orders,error:""});
             }
         } catch (error) {
+          console.log(error)
             res.status(500).send({status:false,message:"Internal Server Error",data:[],error:error});
         }
       };
